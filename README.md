@@ -9,6 +9,6 @@ The default of the winston logger is in the production mode, thus `NODE_ENV=prod
 
 **Troubleshooting**
 
-In order to run the application, make sure to change the log settings inside config/settings.json into the folder you have the permission to write the log
+In order to run the application, make sure to change the log settings inside `config/settings.json` into the folder you have the permission to write the log
 
 
