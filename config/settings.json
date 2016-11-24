@@ -1,0 +1,8 @@
+{
+    "public": {
+
+    },
+    "private": {
+        "logs": "/var/log"
+    }
+}
