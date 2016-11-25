@@ -36,7 +36,7 @@ if (production) {
   let logger = new winston.Logger(logOpts);
   let formatArgs = (args) => {
     let arr = Array.prototype.slice.call(args);
-    arr.unshift(`[${new Date().toISOString()}]`);
+    arr.unshift(`\t[${new Date().toISOString()}]\t`);
     return arr;
   }
 
@@ -45,12 +45,12 @@ if (production) {
     // a special case for Meteor, console log has to return during the LISTERNING log, otherwise, server cannot process request after
     // start up
     if (arguments.length === 1 && arguments[0] === 'LISTENING') return log.call(console, 'LISTENING');
-    logger.info.apply(logger, formatArgs(arguments));
+    logger.info.apply(logger, arguments);
   };
 
   ['info', 'warn', 'error', 'debug'].forEach(function(method) {
     console[method] = function() {
-      logger[method].apply(logger, formatArgs(arguments));
+      logger[method].apply(logger, arguments);
     }
   });
 }
